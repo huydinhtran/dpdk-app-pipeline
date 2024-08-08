@@ -1,0 +1,5 @@
+/home/h255t794/memcached_kernel_emerald/build/CMakeFiles/memcached.dir
+/home/h255t794/memcached_kernel_emerald/build/CMakeFiles/dpdk_pcap.dir
+/home/h255t794/memcached_kernel_emerald/build/CMakeFiles/memcached_client.dir
+/home/h255t794/memcached_kernel_emerald/build/CMakeFiles/edit_cache.dir
+/home/h255t794/memcached_kernel_emerald/build/CMakeFiles/rebuild_cache.dir
