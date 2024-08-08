@@ -1,6 +1,6 @@
 ## Build DPDK 20.11.0 (tested with RDMA v22)
 
-### testPMD (NOTE: macswap is pinned to core 10. Can be changed in ./app/test-pmd/macswap.c)
+### testPMD (NOTE: macswap is pinned to core 10. Can be changed in ./app/test-pmd/macswap.c. Only work with 1 NIC port)
 ```
 cd dpdk-pipeline-macswap
 meson setup build
@@ -8,7 +8,7 @@ cd build
 ninja
 sudo ninja install
 cd .. && export RTE_SDK=$(pwd)
-sudo ./build/app/dpdk-testpmd -l 0,1 -n 4 -- --portmask=0x3 --forward-mode=macswap --txpkts=64 --rxpkts=64 --txd=1024 --rxd=1024 --stats-period 1
+sudo ./build/app/dpdk-testpmd -l 0,1 -n 4 -- --portmask=0x1 --forward-mode=macswap --txpkts=64 --rxpkts=64 --txd=1024 --rxd=1024 --stats-period 1
 ```
 client
 ```
