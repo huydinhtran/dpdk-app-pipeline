@@ -12,7 +12,7 @@ sudo ./build/app/dpdk-testpmd -l 0,1 -n 4 -- --portmask=0x1 --forward-mode=macsw
 ```
 client
 ```
-sudo ./build/app/dpdk-testpmd -l 0-19 -n 4 -a 40:00.1 -a 40:00.0 --socket-mem=4096,0,0,0 -- --socket-num=0 --burst=64 --txd=4096 --rxd=4096 --mbcache=512 --rxq=19 --txq=19 --nb-cores=19 -a --rss-ip --no-numa --forward=txonly --txonly-multi-flow --txpkts=64 --stats-period 1
+sudo ./build/app/dpdk-testpmd -l 0-19 -n 4 -a 40:00.1 -a 40:00.0 --socket-mem=4096,0,0,0 -- --portmask=0x1 --socket-num=0 --burst=64 --txd=4096 --rxd=4096 --mbcache=512 --rxq=19 --txq=19 --nb-cores=19 -a --rss-ip --no-numa --forward=txonly --txonly-multi-flow --txpkts=64 --stats-period 1
 ```
 
 
