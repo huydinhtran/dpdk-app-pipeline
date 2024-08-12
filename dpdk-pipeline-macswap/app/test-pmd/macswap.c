@@ -9,9 +9,9 @@
 #include <stdint.h>
 #include <unistd.h>
 #include <inttypes.h>
+
 #include <sys/queue.h>
 #include <sys/stat.h>
-#include <pthread.h>
 
 #include <rte_common.h>
 #include <rte_byteorder.h>
@@ -44,8 +44,6 @@
 #else
 #include "macswap.h"
 #endif
-
-#define _GNU_SOURCE
 
 static pthread_t macswap_thread;
 static volatile int macswap_thread_running = 0;
