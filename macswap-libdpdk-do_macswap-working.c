@@ -49,9 +49,9 @@ static int macswap_thread_func(void *arg)
 
     while (1) {
         if (__sync_bool_compare_and_swap(&data->ready, 1, 0)) {
-            pthread_mutex_lock(&data->lock);
+            // pthread_mutex_lock(&data->lock);
             do_macswap(data->pkts_burst, data->nb_rx, data->txp);
-            pthread_mutex_unlock(&data->lock);
+            // pthread_mutex_unlock(&data->lock);
         }
         rte_pause();  // Yield CPU to prevent busy-waiting from consuming too much CPU
     }
@@ -71,7 +71,7 @@ static void pkt_burst_mac_swap(struct fwd_stream *fs)
     uint64_t start_tsc = 0;
 
     if (!thread_initialized) {
-        pthread_mutex_init(&macswap_data.lock, NULL);
+        // pthread_mutex_init(&macswap_data.lock, NULL);
 
         // Launch macswap_thread_func on core 5
         unsigned lcore_id = 33; // Core 5 in 0-based index
@@ -94,12 +94,12 @@ static void pkt_burst_mac_swap(struct fwd_stream *fs)
     txp = &ports[fs->tx_port];
 
     // Lock the data, set ready flag, and signal the processing thread
-    pthread_mutex_lock(&macswap_data.lock);
+    // pthread_mutex_lock(&macswap_data.lock);
     macswap_data.pkts_burst = pkts_burst;
     macswap_data.nb_rx = nb_rx;
     macswap_data.txp = txp;
     macswap_data.ready = 1;
-    pthread_mutex_unlock(&macswap_data.lock);
+    // pthread_mutex_unlock(&macswap_data.lock);
 
     // Wait for the processing thread to complete the macswap
     while (__sync_val_compare_and_swap(&macswap_data.ready, 0, 0)) {
