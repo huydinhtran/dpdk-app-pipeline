@@ -1,6 +1,6 @@
 ## Build DPDK 20.11.0 (tested with RDMA v22)
 
-### testPMD (NOTE: macswap is pinned to core 10. Can be changed in ./app/test-pmd/macswap.c. Only work with 1 NIC port)
+### testPMD (NOTE: macswap is pinned to core 10. Can be changed in ./app/test-pmd/macswap.c. Only work with 1 NIC port) use macswap-libdpdk-do_macswap-working.c for ./app/test-pmd/macswap.c
 ```
 cd dpdk-pipeline-macswap
 meson setup build
