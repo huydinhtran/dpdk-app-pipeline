@@ -152,11 +152,11 @@ int main(int argc, char *argv[]) {
             << " OK response count: " << ok_responses_recved << "\n";
 
   // Execute the load.
-  //std::cout << "If you want a separate trace for the workoad benchark, now it's a good time to start capturing it.\n";
-  //std::cout << "Press <Ctrl-C> to execute the workload...\n";
-  //while (!kCtlzArmed) {
-  //  sleep(1);
-  //}
+  std::cout << "If you want a separate trace for the workoad benchark, now it's a good time to start capturing it.\n";
+  std::cout << "Press <Ctrl-C> to execute the workload...\n";
+  while (!kCtlzArmed) {
+   sleep(1);
+  }
   // De-register the signal.
   signal(SIGINT, SIG_DFL);
 #ifdef _GEM5_	
