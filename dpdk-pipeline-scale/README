@@ -9,3 +9,9 @@ API documentation, and sample application information.
 
 For questions and usage discussions, subscribe to: users@dpdk.org
 Report bugs and issues to the development mailing list: dev@dpdk.org
+
+Change macswap.c to assign cores of macswap
+
+CORE_NUM=1 && sudo ./build/app/dpdk-testpmd -l 0-25 --main-lcore=0 -n 4 -- --portmask=0x2 --forward-mode=macswap --mbcache=512 --txd=256 --rxd=256 --stats-period 1 --rxq=$CORE_NUM --txq=$CORE_NUM --nb-cores=$CORE_NUM
+
+sudo ./build/app/dpdk-testpmd -l 0-39 -n 4 -a a8:00.0 -- --rxq=39 --txq=39 --nb-cores=39 -a --forward=txonly --txonly-multi-flow --txpkts=128 --stats-period 1
